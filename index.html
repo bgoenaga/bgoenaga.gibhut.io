@@ -1,0 +1,1105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Boris Goenaga | Traffic Safety & Pavement Engineer</title>
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:wght@300;400;500;600&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --ink: #0d1117;
+    --paper: #f5f3ee;
+    --accent: #cc2200;
+    --accent2: #e8753a;
+    --muted: #6b6760;
+    --border: #ddd9d0;
+    --card: #ffffff;
+    --mono: 'Space Mono', monospace;
+    --serif: 'DM Serif Display', serif;
+    --sans: 'DM Sans', sans-serif;
+  }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: var(--sans);
+    background: var(--paper);
+    color: var(--ink);
+    line-height: 1.6;
+    font-size: 16px;
+  }
+
+  /* ── NAV ── */
+  nav {
+    position: sticky; top: 0; z-index: 100;
+    background: var(--ink);
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 0 48px;
+    height: 64px;
+    border-bottom: 2px solid var(--accent);
+  }
+  .nav-brand {
+    font-family: var(--mono);
+    font-size: 13px;
+    color: #fff;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+  }
+  .nav-brand span { color: var(--accent2); }
+  .nav-links { display: flex; gap: 32px; list-style: none; }
+  .nav-links a {
+    color: rgba(255,255,255,0.7);
+    text-decoration: none;
+    font-size: 13px;
+    font-weight: 500;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    transition: color 0.2s;
+  }
+  .nav-links a:hover { color: var(--accent2); }
+
+  /* ── HERO ── */
+  .hero {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    min-height: 88vh;
+    overflow: hidden;
+  }
+  .hero-left {
+    background: var(--ink);
+    padding: 80px 64px;
+    display: flex; flex-direction: column; justify-content: center;
+    position: relative;
+    overflow: hidden;
+  }
+  .hero-left::before {
+    content: '';
+    position: absolute;
+    width: 400px; height: 400px;
+    background: radial-gradient(circle, rgba(204,34,0,0.15) 0%, transparent 70%);
+    top: -100px; right: -100px;
+    pointer-events: none;
+  }
+  .hero-grid-bg {
+    position: absolute; inset: 0;
+    background-image:
+      linear-gradient(rgba(255,255,255,0.03) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(255,255,255,0.03) 1px, transparent 1px);
+    background-size: 40px 40px;
+    pointer-events: none;
+  }
+  .hero-tag {
+    font-family: var(--mono);
+    font-size: 11px;
+    color: var(--accent2);
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    margin-bottom: 20px;
+    display: flex; align-items: center; gap: 10px;
+  }
+  .hero-tag::before {
+    content: '';
+    display: inline-block;
+    width: 28px; height: 2px;
+    background: var(--accent);
+  }
+  h1.hero-name {
+    font-family: var(--serif);
+    font-size: clamp(48px, 5vw, 72px);
+    color: #fff;
+    line-height: 1.05;
+    margin-bottom: 24px;
+  }
+  h1.hero-name em {
+    color: var(--accent2);
+    font-style: italic;
+  }
+  .hero-desc {
+    color: rgba(255,255,255,0.6);
+    font-size: 15px;
+    line-height: 1.75;
+    max-width: 400px;
+    margin-bottom: 40px;
+    font-weight: 300;
+  }
+  .hero-ctas { display: flex; gap: 16px; flex-wrap: wrap; }
+  .btn-primary {
+    background: var(--accent);
+    color: #fff;
+    padding: 12px 28px;
+    font-size: 13px;
+    font-weight: 600;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    text-decoration: none;
+    transition: background 0.2s;
+    border: none; cursor: pointer;
+  }
+  .btn-primary:hover { background: #a81b00; }
+  .btn-outline {
+    background: transparent;
+    color: rgba(255,255,255,0.7);
+    padding: 12px 28px;
+    font-size: 13px;
+    font-weight: 500;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    text-decoration: none;
+    border: 1px solid rgba(255,255,255,0.25);
+    transition: all 0.2s;
+  }
+  .btn-outline:hover {
+    border-color: var(--accent2);
+    color: var(--accent2);
+  }
+  .hero-stats {
+    display: flex; gap: 40px; margin-top: 56px;
+    padding-top: 40px;
+    border-top: 1px solid rgba(255,255,255,0.1);
+  }
+  .hero-stat-num {
+    font-family: var(--mono);
+    font-size: 28px;
+    color: var(--accent2);
+    font-weight: 700;
+    display: block;
+  }
+  .hero-stat-label {
+    font-size: 11px;
+    color: rgba(255,255,255,0.4);
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    margin-top: 4px;
+  }
+
+  /* Hero Right — Data Visual Panel */
+  .hero-right {
+    background: #f0ede6;
+    display: flex; flex-direction: column;
+    padding: 0;
+    position: relative;
+  }
+  .hero-photo-block {
+    flex: 1;
+    background: linear-gradient(135deg, #1a2332 0%, #0d1117 100%);
+    display: flex; align-items: flex-end; justify-content: center;
+    padding: 40px 40px 0;
+    overflow: hidden;
+    position: relative;
+  }
+  .photo-placeholder {
+    width: 240px; height: 300px;
+    background: linear-gradient(180deg, rgba(204,34,0,0.2) 0%, rgba(13,17,23,0.8) 100%);
+    border-radius: 4px 4px 0 0;
+    border: 1px solid rgba(255,255,255,0.1);
+    display: flex; align-items: center; justify-content: center;
+    flex-direction: column; gap: 12px;
+    color: rgba(255,255,255,0.3);
+    font-family: var(--mono); font-size: 11px;
+    text-align: center;
+  }
+  .photo-placeholder .icon {
+    width: 56px; height: 56px;
+    border-radius: 50%;
+    border: 2px solid rgba(255,255,255,0.15);
+    display: flex; align-items: center; justify-content: center;
+    font-size: 24px;
+  }
+  .hero-affil {
+    padding: 28px 40px;
+    border-top: 3px solid var(--accent);
+    background: #fff;
+  }
+  .hero-affil-label {
+    font-family: var(--mono);
+    font-size: 10px;
+    color: var(--muted);
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    margin-bottom: 8px;
+  }
+  .hero-affil-title {
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--ink);
+    line-height: 1.4;
+  }
+  .hero-affil-sub {
+    font-size: 12px;
+    color: var(--muted);
+    margin-top: 4px;
+  }
+
+  /* ── SECTION SHARED ── */
+  section { padding: 100px 0; }
+  .container { max-width: 1140px; margin: 0 auto; padding: 0 48px; }
+  .section-eyebrow {
+    font-family: var(--mono);
+    font-size: 11px;
+    color: var(--accent);
+    text-transform: uppercase;
+    letter-spacing: 0.18em;
+    display: flex; align-items: center; gap: 12px;
+    margin-bottom: 16px;
+  }
+  .section-eyebrow::after {
+    content: '';
+    flex: 1;
+    max-width: 60px;
+    height: 1px;
+    background: var(--accent);
+  }
+  h2.section-title {
+    font-family: var(--serif);
+    font-size: clamp(32px, 3.5vw, 48px);
+    color: var(--ink);
+    line-height: 1.1;
+    margin-bottom: 48px;
+  }
+
+  /* ── ABOUT ── */
+  #about { background: #fff; }
+  .about-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 80px;
+    align-items: start;
+  }
+  .about-text p {
+    color: var(--muted);
+    font-size: 15px;
+    line-height: 1.8;
+    margin-bottom: 20px;
+    font-weight: 300;
+  }
+  .about-text p strong { color: var(--ink); font-weight: 600; }
+  .about-tags { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 28px; }
+  .tag {
+    font-family: var(--mono);
+    font-size: 11px;
+    padding: 6px 12px;
+    border: 1px solid var(--border);
+    color: var(--muted);
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+  }
+  .tag-filled {
+    background: var(--ink);
+    color: #fff;
+    border-color: var(--ink);
+  }
+  .about-sidebar {}
+  .about-contact-card {
+    background: var(--paper);
+    padding: 32px;
+    border-left: 4px solid var(--accent);
+    margin-bottom: 32px;
+  }
+  .contact-row {
+    display: flex; align-items: center; gap: 12px;
+    padding: 12px 0;
+    border-bottom: 1px solid var(--border);
+    font-size: 13px;
+    color: var(--ink);
+  }
+  .contact-row:last-child { border-bottom: none; }
+  .contact-row .label {
+    font-family: var(--mono);
+    font-size: 10px;
+    text-transform: uppercase;
+    color: var(--muted);
+    min-width: 72px;
+    letter-spacing: 0.08em;
+  }
+  .contact-row a { color: var(--accent); text-decoration: none; }
+  .contact-row a:hover { text-decoration: underline; }
+  .education-list { list-style: none; }
+  .education-item {
+    display: flex; gap: 20px;
+    padding: 16px 0;
+    border-bottom: 1px solid var(--border);
+  }
+  .edu-year {
+    font-family: var(--mono);
+    font-size: 11px;
+    color: var(--accent);
+    min-width: 50px;
+    padding-top: 3px;
+  }
+  .edu-info {}
+  .edu-degree { font-weight: 600; font-size: 14px; }
+  .edu-school { font-size: 12px; color: var(--muted); margin-top: 2px; }
+
+  /* ── RESEARCH ── */
+  #research { background: var(--paper); }
+  .research-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2px;
+    margin-bottom: 64px;
+  }
+  .research-card {
+    background: #fff;
+    padding: 36px 32px;
+    border-top: 4px solid transparent;
+    transition: border-color 0.2s, transform 0.2s;
+    cursor: default;
+    position: relative;
+  }
+  .research-card:hover { border-top-color: var(--accent); transform: translateY(-4px); }
+  .research-card-num {
+    font-family: var(--mono);
+    font-size: 36px;
+    color: rgba(204,34,0,0.1);
+    font-weight: 700;
+    line-height: 1;
+    margin-bottom: 20px;
+  }
+  .research-card h3 {
+    font-family: var(--serif);
+    font-size: 20px;
+    color: var(--ink);
+    margin-bottom: 12px;
+    line-height: 1.2;
+  }
+  .research-card p {
+    font-size: 13px;
+    color: var(--muted);
+    line-height: 1.7;
+    font-weight: 300;
+  }
+  .research-card-tag {
+    position: absolute;
+    top: 16px; right: 16px;
+    font-family: var(--mono);
+    font-size: 9px;
+    color: var(--accent2);
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    background: rgba(232,117,58,0.1);
+    padding: 3px 8px;
+  }
+
+  /* Data visualization bar chart */
+  .viz-section {
+    background: var(--ink);
+    padding: 48px;
+    margin-top: 2px;
+  }
+  .viz-title {
+    font-family: var(--mono);
+    font-size: 11px;
+    color: rgba(255,255,255,0.4);
+    text-transform: uppercase;
+    letter-spacing: 0.15em;
+    margin-bottom: 28px;
+  }
+  .bar-chart { display: flex; flex-direction: column; gap: 12px; }
+  .bar-row { display: flex; align-items: center; gap: 16px; }
+  .bar-label {
+    font-size: 12px;
+    color: rgba(255,255,255,0.5);
+    min-width: 200px;
+    font-weight: 300;
+  }
+  .bar-track {
+    flex: 1;
+    height: 8px;
+    background: rgba(255,255,255,0.07);
+    position: relative;
+    overflow: hidden;
+  }
+  .bar-fill {
+    position: absolute;
+    left: 0; top: 0; bottom: 0;
+    background: linear-gradient(90deg, var(--accent) 0%, var(--accent2) 100%);
+    transition: width 1s ease;
+  }
+  .bar-val {
+    font-family: var(--mono);
+    font-size: 11px;
+    color: var(--accent2);
+    min-width: 40px;
+    text-align: right;
+  }
+
+  /* ── PUBLICATIONS ── */
+  #publications { background: #fff; }
+  .pub-filters {
+    display: flex; gap: 8px; margin-bottom: 40px; flex-wrap: wrap;
+  }
+  .pub-filter {
+    font-family: var(--mono);
+    font-size: 11px;
+    padding: 8px 16px;
+    border: 1px solid var(--border);
+    background: none;
+    color: var(--muted);
+    cursor: pointer;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    transition: all 0.2s;
+  }
+  .pub-filter.active, .pub-filter:hover {
+    background: var(--ink);
+    color: #fff;
+    border-color: var(--ink);
+  }
+  .pub-list { list-style: none; }
+  .pub-item {
+    display: grid;
+    grid-template-columns: 80px 1fr auto;
+    gap: 24px;
+    align-items: start;
+    padding: 28px 0;
+    border-bottom: 1px solid var(--border);
+    transition: background 0.15s;
+  }
+  .pub-item:hover { background: var(--paper); margin: 0 -24px; padding: 28px 24px; }
+  .pub-year {
+    font-family: var(--mono);
+    font-size: 12px;
+    color: var(--accent);
+    font-weight: 700;
+    padding-top: 3px;
+  }
+  .pub-content {}
+  .pub-title {
+    font-size: 15px;
+    font-weight: 600;
+    color: var(--ink);
+    line-height: 1.4;
+    margin-bottom: 6px;
+  }
+  .pub-authors {
+    font-size: 13px;
+    color: var(--muted);
+    margin-bottom: 6px;
+  }
+  .pub-authors strong { color: var(--ink); }
+  .pub-venue {
+    font-size: 12px;
+    color: var(--muted);
+    font-style: italic;
+  }
+  .pub-badge {
+    font-family: var(--mono);
+    font-size: 10px;
+    padding: 4px 10px;
+    background: rgba(204,34,0,0.08);
+    color: var(--accent);
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    white-space: nowrap;
+    align-self: start;
+    margin-top: 4px;
+  }
+
+  /* ── TEACHING / SKILLS ── */
+  #experience { background: var(--paper); }
+  .exp-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 64px;
+  }
+  .exp-column h3 {
+    font-family: var(--serif);
+    font-size: 24px;
+    margin-bottom: 28px;
+    padding-bottom: 16px;
+    border-bottom: 2px solid var(--ink);
+  }
+  .exp-item {
+    display: flex; gap: 20px;
+    padding: 20px 0;
+    border-bottom: 1px solid var(--border);
+  }
+  .exp-dot {
+    width: 10px; height: 10px;
+    border-radius: 50%;
+    background: var(--accent);
+    margin-top: 6px;
+    flex-shrink: 0;
+  }
+  .exp-item-title { font-weight: 600; font-size: 14px; margin-bottom: 4px; }
+  .exp-item-sub { font-size: 12px; color: var(--muted); }
+  .skill-bars { margin-top: 8px; }
+  .skill-bar-row { display: flex; align-items: center; gap: 12px; margin-bottom: 12px; }
+  .skill-name { font-size: 12px; color: var(--muted); min-width: 140px; }
+  .skill-track { flex: 1; height: 4px; background: var(--border); }
+  .skill-fill { height: 100%; background: var(--accent); }
+
+  /* ── CONTACT ── */
+  #contact { background: var(--ink); color: #fff; padding: 100px 0; }
+  #contact .section-eyebrow { color: var(--accent2); }
+  #contact .section-eyebrow::after { background: var(--accent2); }
+  #contact h2.section-title { color: #fff; }
+  .contact-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 80px;
+    align-items: start;
+  }
+  .contact-info p {
+    color: rgba(255,255,255,0.5);
+    font-size: 15px;
+    line-height: 1.8;
+    font-weight: 300;
+    margin-bottom: 40px;
+  }
+  .contact-details { list-style: none; }
+  .contact-detail {
+    display: flex; align-items: flex-start; gap: 16px;
+    padding: 16px 0;
+    border-bottom: 1px solid rgba(255,255,255,0.08);
+    font-size: 14px;
+  }
+  .contact-detail .icon-box {
+    width: 36px; height: 36px;
+    border: 1px solid rgba(255,255,255,0.15);
+    display: flex; align-items: center; justify-content: center;
+    font-size: 14px;
+    flex-shrink: 0;
+  }
+  .contact-detail .dl { color: rgba(255,255,255,0.4); font-size: 11px; font-family: var(--mono); text-transform: uppercase; }
+  .contact-detail .dv { color: #fff; }
+  .contact-detail a { color: var(--accent2); text-decoration: none; }
+  .social-links { display: flex; gap: 12px; margin-top: 36px; }
+  .social-link {
+    width: 44px; height: 44px;
+    border: 1px solid rgba(255,255,255,0.2);
+    display: flex; align-items: center; justify-content: center;
+    color: rgba(255,255,255,0.5);
+    text-decoration: none;
+    font-size: 16px;
+    transition: all 0.2s;
+  }
+  .social-link:hover {
+    border-color: var(--accent2);
+    color: var(--accent2);
+  }
+  .contact-map-block {
+    background: rgba(255,255,255,0.04);
+    border: 1px solid rgba(255,255,255,0.08);
+    padding: 40px;
+  }
+  .contact-map-block h4 {
+    font-family: var(--mono);
+    font-size: 11px;
+    color: rgba(255,255,255,0.4);
+    text-transform: uppercase;
+    letter-spacing: 0.15em;
+    margin-bottom: 20px;
+  }
+  .map-placeholder {
+    width: 100%; height: 180px;
+    background: rgba(255,255,255,0.03);
+    border: 1px dashed rgba(255,255,255,0.1);
+    display: flex; align-items: center; justify-content: center;
+    color: rgba(255,255,255,0.2);
+    font-family: var(--mono); font-size: 11px;
+    text-align: center; line-height: 2;
+    margin-bottom: 24px;
+  }
+  .office-detail { font-size: 13px; color: rgba(255,255,255,0.5); line-height: 1.8; }
+  .office-detail strong { color: rgba(255,255,255,0.8); }
+
+  /* ── FOOTER ── */
+  footer {
+    background: #060a0f;
+    padding: 28px 48px;
+    display: flex; align-items: center; justify-content: space-between;
+  }
+  .footer-brand {
+    font-family: var(--mono);
+    font-size: 12px;
+    color: rgba(255,255,255,0.3);
+  }
+  .footer-links { display: flex; gap: 24px; }
+  .footer-links a {
+    font-size: 11px;
+    color: rgba(255,255,255,0.25);
+    text-decoration: none;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+  }
+  .footer-links a:hover { color: rgba(255,255,255,0.5); }
+
+  /* ── DIVIDER ── */
+  .data-divider {
+    height: 6px;
+    background: linear-gradient(90deg, var(--accent) 0%, var(--accent2) 50%, var(--ink) 100%);
+  }
+
+  /* ── ANIMATE ── */
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(24px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+  .hero-left > * {
+    animation: fadeUp 0.6s ease both;
+  }
+  .hero-left .hero-tag { animation-delay: 0.1s; }
+  .hero-left h1 { animation-delay: 0.2s; }
+  .hero-left .hero-desc { animation-delay: 0.3s; }
+  .hero-left .hero-ctas { animation-delay: 0.4s; }
+  .hero-left .hero-stats { animation-delay: 0.5s; }
+
+  /* ── GOOGLE SITES NOTICE ── */
+  .gs-notice {
+    background: linear-gradient(135deg, #1a2332, #0d1117);
+    border: 1px solid rgba(232,117,58,0.3);
+    padding: 36px 48px;
+    text-align: center;
+  }
+  .gs-notice h4 {
+    font-family: var(--mono);
+    font-size: 13px;
+    color: var(--accent2);
+    margin-bottom: 12px;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+  }
+  .gs-notice p {
+    font-size: 13px;
+    color: rgba(255,255,255,0.5);
+    line-height: 1.7;
+    max-width: 680px;
+    margin: 0 auto;
+  }
+  .gs-notice p code {
+    background: rgba(255,255,255,0.08);
+    padding: 2px 6px;
+    font-family: var(--mono);
+    font-size: 11px;
+    color: var(--accent2);
+  }
+
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <div class="nav-brand">Boris <span>Goenaga</span> · PhD</div>
+  <ul class="nav-links">
+    <li><a href="#about">About</a></li>
+    <li><a href="#research">Research</a></li>
+    <li><a href="#publications">Publications</a></li>
+    <li><a href="#experience">Teaching</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<section class="hero" id="home">
+  <div class="hero-left">
+    <div class="hero-grid-bg"></div>
+    <div class="hero-tag">Postdoctoral Scholar · NCSU CCEE</div>
+    <h1 class="hero-name">Boris<br><em>Goenaga</em></h1>
+    <p class="hero-desc">
+      Traffic safety engineer advancing the intersection of <strong>pavement management</strong> and <strong>highway safety</strong> — quantifying how road surface conditions drive crash risk.
+    </p>
+    <div class="hero-ctas">
+      <a href="#research" class="btn-primary">View Research</a>
+      <a href="#publications" class="btn-outline">Publications</a>
+    </div>
+    <div class="hero-stats">
+      <div>
+        <span class="hero-stat-num">15+</span>
+        <div class="hero-stat-label">Publications</div>
+      </div>
+      <div>
+        <span class="hero-stat-num">8+</span>
+        <div class="hero-stat-label">Years Research</div>
+      </div>
+      <div>
+        <span class="hero-stat-num">NCDOT</span>
+        <div class="hero-stat-label">Industry Partner</div>
+      </div>
+    </div>
+  </div>
+  <div class="hero-right">
+    <div class="hero-photo-block">
+      <div class="photo-placeholder">
+        <div class="icon">👤</div>
+        <div>[ Upload your photo<br>to Google Sites ]</div>
+      </div>
+    </div>
+    <div class="hero-affil">
+      <div class="hero-affil-label">Affiliation</div>
+      <div class="hero-affil-title">Dept. of Civil, Construction &amp; Environmental Engineering</div>
+      <div class="hero-affil-sub">North Carolina State University · Raleigh, NC</div>
+    </div>
+  </div>
+</section>
+
+<div class="data-divider"></div>
+
+<!-- ABOUT -->
+<section id="about">
+  <div class="container">
+    <div class="section-eyebrow">Background</div>
+    <h2 class="section-title">About Me</h2>
+    <div class="about-grid">
+      <div class="about-text">
+        <p>
+          I am a <strong>Postdoctoral Scholar Researcher</strong> in the Department of Civil, Construction, and Environmental Engineering at North Carolina State University, where I work at the intersection of pavement engineering and transportation safety.
+        </p>
+        <p>
+          My research focuses on improving how engineers manage pavements' <strong>structural and frictional performance</strong>. This management process has long-lasting impacts on the total transportation system and its economic, environmental, and social dimensions.
+        </p>
+        <p>
+          My central research goal is to find a quantifiable relationship between the most common <strong>pavement condition indices</strong> used in Pavement Management Systems (PMS) and highway safety outcomes — ultimately integrating safety performance into PMS decision-making.
+        </p>
+        <div class="about-tags">
+          <span class="tag tag-filled">Pavement Management</span>
+          <span class="tag tag-filled">Traffic Safety</span>
+          <span class="tag">GIS Analysis</span>
+          <span class="tag">Friction Performance</span>
+          <span class="tag">Crash Modeling</span>
+          <span class="tag">NCDOT</span>
+        </div>
+      </div>
+      <div class="about-sidebar">
+        <div class="about-contact-card">
+          <div class="hero-affil-label" style="margin-bottom:16px;">Contact Information</div>
+          <ul style="list-style:none;">
+            <li class="contact-row">
+              <span class="label">Email</span>
+              <a href="mailto:bjgoenag@ncsu.edu">bjgoenag@ncsu.edu</a>
+            </li>
+            <li class="contact-row">
+              <span class="label">Office</span>
+              <span>Fitts-Woolard Hall, NCSU</span>
+            </li>
+            <li class="contact-row">
+              <span class="label">LinkedIn</span>
+              <a href="https://www.linkedin.com/in/boris-goenaga-silvera-09a15338/" target="_blank">boris-goenaga-silvera</a>
+            </li>
+          </ul>
+        </div>
+        <div>
+          <div class="section-eyebrow" style="margin-bottom:12px;">Education</div>
+          <ul class="education-list">
+            <li class="education-item">
+              <span class="edu-year">PhD</span>
+              <div class="edu-info">
+                <div class="edu-degree">Civil Engineering</div>
+                <div class="edu-school">North Carolina State University</div>
+              </div>
+            </li>
+            <li class="education-item">
+              <span class="edu-year">MS</span>
+              <div class="edu-info">
+                <div class="edu-degree">Transportation Engineering</div>
+                <div class="edu-school">[ Add your institution ]</div>
+              </div>
+            </li>
+            <li class="education-item">
+              <span class="edu-year">BS</span>
+              <div class="edu-info">
+                <div class="edu-degree">Civil Engineering</div>
+                <div class="edu-school">[ Add your institution ]</div>
+              </div>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="data-divider"></div>
+
+<!-- RESEARCH -->
+<section id="research">
+  <div class="container">
+    <div class="section-eyebrow">Focus Areas</div>
+    <h2 class="section-title">Research</h2>
+    <div class="research-grid">
+      <div class="research-card">
+        <div class="research-card-tag">Active</div>
+        <div class="research-card-num">01</div>
+        <h3>Pavement–Safety Integration</h3>
+        <p>Developing predictive models that link pavement surface condition indices (IRI, friction, rutting) to crash frequency and severity, enabling safety-informed PMS decisions.</p>
+      </div>
+      <div class="research-card">
+        <div class="research-card-tag">Active</div>
+        <div class="research-card-num">02</div>
+        <h3>Frictional Performance Monitoring</h3>
+        <p>Characterizing pavement skid resistance degradation over time and its relationship to wet-weather crash rates across the NCDOT highway network.</p>
+      </div>
+      <div class="research-card">
+        <div class="research-card-tag">Active</div>
+        <div class="research-card-num">03</div>
+        <h3>GIS-Based Spatial Analysis</h3>
+        <p>Applying geospatial tools to overlay pavement condition data, crash records, and traffic volume across large statewide networks to identify high-risk corridors.</p>
+      </div>
+      <div class="research-card">
+        <div class="research-card-num">04</div>
+        <h3>Structural Performance Modeling</h3>
+        <p>Quantifying the structural health of flexible pavements using deflection data and relating structural deficiency to increased safety risk for road users.</p>
+      </div>
+      <div class="research-card">
+        <div class="research-card-num">05</div>
+        <h3>PMS Decision-Making</h3>
+        <p>Evaluating treatment selection frameworks in state DOT Pavement Management Systems to incorporate multi-objective optimization including safety outcomes.</p>
+      </div>
+      <div class="research-card">
+        <div class="research-card-num">06</div>
+        <h3>Environmental &amp; Equity Impacts</h3>
+        <p>Assessing the social and environmental dimensions of pavement deterioration, including disproportionate impacts on rural and underserved communities.</p>
+      </div>
+    </div>
+
+    <!-- Data visualization -->
+    <div class="viz-section">
+      <div class="viz-title">Research Funding &amp; Project Scope · Illustrative</div>
+      <div class="bar-chart">
+        <div class="bar-row">
+          <span class="bar-label">Pavement–Safety Linkage (NCDOT)</span>
+          <div class="bar-track"><div class="bar-fill" style="width:85%"></div></div>
+          <span class="bar-val">85%</span>
+        </div>
+        <div class="bar-row">
+          <span class="bar-label">Friction Monitoring Network</span>
+          <div class="bar-track"><div class="bar-fill" style="width:70%"></div></div>
+          <span class="bar-val">70%</span>
+        </div>
+        <div class="bar-row">
+          <span class="bar-label">GIS Spatial Analysis</span>
+          <div class="bar-track"><div class="bar-fill" style="width:60%"></div></div>
+          <span class="bar-val">60%</span>
+        </div>
+        <div class="bar-row">
+          <span class="bar-label">Structural Deflection Modeling</span>
+          <div class="bar-track"><div class="bar-fill" style="width:45%"></div></div>
+          <span class="bar-val">45%</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="data-divider"></div>
+
+<!-- PUBLICATIONS -->
+<section id="publications">
+  <div class="container">
+    <div class="section-eyebrow">Scholarly Work</div>
+    <h2 class="section-title">Publications</h2>
+
+    <div class="pub-filters">
+      <button class="pub-filter active">All</button>
+      <button class="pub-filter">Journal Articles</button>
+      <button class="pub-filter">Conference Papers</button>
+      <button class="pub-filter">Reports</button>
+    </div>
+
+    <ul class="pub-list">
+      <li class="pub-item">
+        <span class="pub-year">2024</span>
+        <div class="pub-content">
+          <div class="pub-title">Relationship Between Pavement Condition Indices and Highway Safety in North Carolina</div>
+          <div class="pub-authors"><strong>Goenaga, B.</strong>, et al.</div>
+          <div class="pub-venue">Transportation Research Record, Journal of the Transportation Research Board</div>
+        </div>
+        <span class="pub-badge">Journal</span>
+      </li>
+      <li class="pub-item">
+        <span class="pub-year">2023</span>
+        <div class="pub-content">
+          <div class="pub-title">Pavement Friction and Wet-Weather Crash Frequency: A Statewide Analysis</div>
+          <div class="pub-authors"><strong>Goenaga, B.</strong>, Underwood, B.S., et al.</div>
+          <div class="pub-venue">International Journal of Pavement Engineering</div>
+        </div>
+        <span class="pub-badge">Journal</span>
+      </li>
+      <li class="pub-item">
+        <span class="pub-year">2022</span>
+        <div class="pub-content">
+          <div class="pub-title">Integrating Safety Performance Functions into Pavement Management Systems</div>
+          <div class="pub-authors"><strong>Goenaga, B.</strong>, et al.</div>
+          <div class="pub-venue">Transportation Research Board Annual Meeting · Washington, D.C.</div>
+        </div>
+        <span class="pub-badge">Conference</span>
+      </li>
+      <li class="pub-item">
+        <span class="pub-year">2021</span>
+        <div class="pub-content">
+          <div class="pub-title">GIS-Based Identification of High-Risk Pavement Segments Using Spatial Crash Analysis</div>
+          <div class="pub-authors"><strong>Goenaga, B.</strong>, et al.</div>
+          <div class="pub-venue">Journal of Transportation Safety &amp; Security</div>
+        </div>
+        <span class="pub-badge">Journal</span>
+      </li>
+      <li class="pub-item">
+        <span class="pub-year">2020</span>
+        <div class="pub-content">
+          <div class="pub-title">NCDOT Pavement Friction Data Analysis: Implications for Safety Planning</div>
+          <div class="pub-authors"><strong>Goenaga, B.</strong>, Smith, J., et al.</div>
+          <div class="pub-venue">NCDOT Research Report · RP 2020-04</div>
+        </div>
+        <span class="pub-badge">Report</span>
+      </li>
+    </ul>
+    <p style="margin-top:24px; font-size:13px; color:var(--muted);">
+      ⚠️ <em>Sample entries — replace with your actual publications from Google Scholar or ORCID.</em>
+    </p>
+  </div>
+</section>
+
+<div class="data-divider"></div>
+
+<!-- EXPERIENCE / TEACHING -->
+<section id="experience">
+  <div class="container">
+    <div class="section-eyebrow">Experience</div>
+    <h2 class="section-title">Teaching &amp; Skills</h2>
+    <div class="exp-grid">
+      <div class="exp-column">
+        <h3>Teaching</h3>
+        <div class="exp-item">
+          <div class="exp-dot"></div>
+          <div>
+            <div class="exp-item-title">CE 215 – Principles of Transportation Engineering</div>
+            <div class="exp-item-sub">Teaching Assistant · NCSU · Fall 2021–2023</div>
+          </div>
+        </div>
+        <div class="exp-item">
+          <div class="exp-dot"></div>
+          <div>
+            <div class="exp-item-title">CE 481 – Pavement Design &amp; Management</div>
+            <div class="exp-item-sub">Guest Lecturer · NCSU · Spring 2022</div>
+          </div>
+        </div>
+        <div class="exp-item">
+          <div class="exp-dot"></div>
+          <div>
+            <div class="exp-item-title">Research Methods Workshop</div>
+            <div class="exp-item-sub">Graduate Facilitator · NCSU · 2022</div>
+          </div>
+        </div>
+        <p style="margin-top:16px; font-size:12px; color:var(--muted);">⚠️ <em>Update with your actual courses.</em></p>
+      </div>
+      <div class="exp-column">
+        <h3>Technical Skills</h3>
+        <div class="skill-bars">
+          <div class="skill-bar-row">
+            <span class="skill-name">ArcGIS / QGIS</span>
+            <div class="skill-track"><div class="skill-fill" style="width:90%"></div></div>
+          </div>
+          <div class="skill-bar-row">
+            <span class="skill-name">R / Statistical Analysis</span>
+            <div class="skill-track"><div class="skill-fill" style="width:85%"></div></div>
+          </div>
+          <div class="skill-bar-row">
+            <span class="skill-name">Python (Pandas, GeoPandas)</span>
+            <div class="skill-track"><div class="skill-fill" style="width:75%"></div></div>
+          </div>
+          <div class="skill-bar-row">
+            <span class="skill-name">Crash Modeling (SPFs)</span>
+            <div class="skill-track"><div class="skill-fill" style="width:90%"></div></div>
+          </div>
+          <div class="skill-bar-row">
+            <span class="skill-name">Pavement Testing &amp; Field Work</span>
+            <div class="skill-track"><div class="skill-fill" style="width:80%"></div></div>
+          </div>
+          <div class="skill-bar-row">
+            <span class="skill-name">Technical Writing</span>
+            <div class="skill-track"><div class="skill-fill" style="width:95%"></div></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="data-divider"></div>
+
+<!-- CONTACT -->
+<section id="contact">
+  <div class="container">
+    <div class="section-eyebrow">Get in Touch</div>
+    <h2 class="section-title">Contact</h2>
+    <div class="contact-grid">
+      <div class="contact-info">
+        <p>I welcome inquiries from prospective collaborators, students, and industry partners interested in pavement safety, GIS analysis, or transportation research.</p>
+        <ul class="contact-details">
+          <li class="contact-detail">
+            <div class="icon-box">✉</div>
+            <div>
+              <div class="dl">Email</div>
+              <div class="dv"><a href="mailto:bjgoenag@ncsu.edu">bjgoenag@ncsu.edu</a></div>
+            </div>
+          </li>
+          <li class="contact-detail">
+            <div class="icon-box">🏛</div>
+            <div>
+              <div class="dl">Department</div>
+              <div class="dv">Civil, Construction &amp; Environmental Engineering</div>
+            </div>
+          </li>
+          <li class="contact-detail">
+            <div class="icon-box">📍</div>
+            <div>
+              <div class="dl">Location</div>
+              <div class="dv">Fitts-Woolard Hall, NC State University, Raleigh, NC</div>
+            </div>
+          </li>
+        </ul>
+        <div class="social-links">
+          <a href="https://www.linkedin.com/in/boris-goenaga-silvera-09a15338/" target="_blank" class="social-link" title="LinkedIn">in</a>
+          <a href="https://www.facebook.com/boris.goenaga/" target="_blank" class="social-link" title="Facebook">f</a>
+          <a href="mailto:bjgoenag@ncsu.edu" class="social-link" title="Email">@</a>
+        </div>
+      </div>
+      <div>
+        <div class="contact-map-block">
+          <h4>Find Me On Campus</h4>
+          <div class="map-placeholder">
+            [ Embed Google Map here<br>in Google Sites via embed block ]
+          </div>
+          <div class="office-detail">
+            <strong>Fitts-Woolard Hall</strong><br>
+            915 Partners Way<br>
+            Raleigh, NC 27695<br><br>
+            North Carolina State University
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- GOOGLE SITES GUIDE -->
+<div class="gs-notice">
+  <div class="container">
+    <h4>📐 Google Sites Implementation Guide</h4>
+    <p>
+      This is a design reference. In <strong>Google Sites</strong>, recreate this using:
+      <code>Text Boxes</code> for hero text · <code>Image Placeholders</code> for your photo ·
+      <code>Cards</code> layout for research tiles · <code>Collapsible Lists</code> for publications ·
+      <code>Embed</code> for Google Maps · <code>Google Slides</code> embedded for data visualizations ·
+      Use <strong>Header</strong> sections with a dark background color to match the dark panels.
+      Add your custom color theme via <em>Themes → Customize</em>.
+    </p>
+  </div>
+</div>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-brand">© 2025 Boris Goenaga · NC State University</div>
+  <nav class="footer-links">
+    <a href="#about">About</a>
+    <a href="#research">Research</a>
+    <a href="#publications">Publications</a>
+    <a href="#contact">Contact</a>
+  </nav>
+</footer>
+
+</body>
+</html>
