@@ -64,7 +64,7 @@
   .hero {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    min-height: 88vh;
+    min-height: 100vh;
     overflow: hidden;
   }
   .hero-left {
@@ -176,36 +176,24 @@
 
   /* Hero Right — Data Visual Panel */
   .hero-right {
-    background: #f0ede6;
+    background: #0d1117;
     display: flex; flex-direction: column;
     padding: 0;
     position: relative;
   }
   .hero-photo-block {
     flex: 1;
-    background: linear-gradient(135deg, #1a2332 0%, #0d1117 100%);
-    display: flex; align-items: flex-end; justify-content: center;
-    padding: 40px 40px 0;
+    display: flex; align-items: stretch;
     overflow: hidden;
     position: relative;
+    min-height: 0;
   }
-  .photo-placeholder {
-    width: 240px; height: 300px;
-    background: linear-gradient(180deg, rgba(204,34,0,0.2) 0%, rgba(13,17,23,0.8) 100%);
-    border-radius: 4px 4px 0 0;
-    border: 1px solid rgba(255,255,255,0.1);
-    display: flex; align-items: center; justify-content: center;
-    flex-direction: column; gap: 12px;
-    color: rgba(255,255,255,0.3);
-    font-family: var(--mono); font-size: 11px;
-    text-align: center;
-  }
-  .photo-placeholder .icon {
-    width: 56px; height: 56px;
-    border-radius: 50%;
-    border: 2px solid rgba(255,255,255,0.15);
-    display: flex; align-items: center; justify-content: center;
-    font-size: 24px;
+  .hero-photo-block img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center top;
+    display: block;
   }
   .hero-affil {
     padding: 28px 40px;
@@ -723,10 +711,7 @@
   </div>
   <div class="hero-right">
     <div class="hero-photo-block">
-      <div class="photo-placeholder">
-        <div class="icon">👤</div>
-        <div>[ Upload your photo<br>to Google Sites ]</div>
-      </div>
+      <img src="Photo_Enhanced.png" alt="Boris Goenaga — NC State University">
     </div>
     <div class="hero-affil">
       <div class="hero-affil-label">Affiliation</div>
@@ -757,10 +742,10 @@
         <div class="about-tags">
           <span class="tag tag-filled">Pavement Management</span>
           <span class="tag tag-filled">Traffic Safety</span>
-          <span class="tag tag-filled">GIS Analysis</span>
-          <span class="tag tag-filled">Friction Performance</span>
-          <span class="tag tag-filled">Crash Modeling</span>
-          <span class="tag tag-filled">NCDOT</span>
+          <span class="tag">GIS Analysis</span>
+          <span class="tag">Friction Performance</span>
+          <span class="tag">Crash Modeling</span>
+          <span class="tag">NCDOT</span>
         </div>
       </div>
       <div class="about-sidebar">
@@ -769,11 +754,11 @@
           <ul style="list-style:none;">
             <li class="contact-row">
               <span class="label">Email</span>
-              <a href="mailto:bgoenaga1@ncdot.gov">bgoenaga1@ncdot.gov</a>
+              <a href="/cdn-cgi/l/email-protection#afcdc5c8c0cac1cec8efc1ccdcda81cacbda"><span class="__cf_email__" data-cfemail="d4b6beb3bbb1bab5b394bab7a7a1fab1b0a1">[email&#160;protected]</span></a>
             </li>
             <li class="contact-row">
               <span class="label">Office</span>
-              <span>Fitts-Woolard Hall, NCSU (cambiar)</span>
+              <span>Fitts-Woolard Hall, NCSU</span>
             </li>
             <li class="contact-row">
               <span class="label">LinkedIn</span>
@@ -794,15 +779,15 @@
             <li class="education-item">
               <span class="edu-year">MS</span>
               <div class="edu-info">
-                <div class="edu-degree">Civil Engineering</div>
-                <div class="edu-school">Universidad del Norte (Colombia)</div>
+                <div class="edu-degree">Transportation Engineering</div>
+                <div class="edu-school">[ Add your institution ]</div>
               </div>
             </li>
             <li class="education-item">
               <span class="edu-year">BS</span>
               <div class="edu-info">
                 <div class="edu-degree">Civil Engineering</div>
-                <div class="edu-school">Universidad del Norte (Colombia)</div>
+                <div class="edu-school">[ Add your institution ]</div>
               </div>
             </li>
           </ul>
@@ -1033,7 +1018,7 @@
             <div class="icon-box">✉</div>
             <div>
               <div class="dl">Email</div>
-              <div class="dv"><a href="mailto:bjgoenag@ncsu.edu">bjgoenag@ncsu.edu</a></div>
+              <div class="dv"><a href="/cdn-cgi/l/email-protection#96f4fcf1f9f3f8f7f1d6f8f5e5e3b8f3f2e3"><span class="__cf_email__" data-cfemail="523038353d373c3335123c3121277c373627">[email&#160;protected]</span></a></div>
             </div>
           </li>
           <li class="contact-detail">
@@ -1054,7 +1039,7 @@
         <div class="social-links">
           <a href="https://www.linkedin.com/in/boris-goenaga-silvera-09a15338/" target="_blank" class="social-link" title="LinkedIn">in</a>
           <a href="https://www.facebook.com/boris.goenaga/" target="_blank" class="social-link" title="Facebook">f</a>
-          <a href="mailto:bjgoenag@ncsu.edu" class="social-link" title="Email">@</a>
+          <a href="/cdn-cgi/l/email-protection#dfbdb5b8b0bab1beb89fb1bcacaaf1babbaa" class="social-link" title="Email">@</a>
         </div>
       </div>
       <div>
@@ -1091,15 +1076,3 @@
 </div>
 
 <!-- FOOTER -->
-<footer>
-  <div class="footer-brand">© 2025 Boris Goenaga · NC State University</div>
-  <nav class="footer-links">
-    <a href="#about">About</a>
-    <a href="#research">Research</a>
-    <a href="#publications">Publications</a>
-    <a href="#contact">Contact</a>
-  </nav>
-</footer>
-
-</body>
-</html>
